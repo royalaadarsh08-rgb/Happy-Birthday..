@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday, [Cutie pie Diya jii]!</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff3399;
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
+      color: #333;
+    }
+    .cake {
+      font-size: 5em;
+      margin: 20px 0;
+    }
+    #countdown {
+      font-size: 1.5em;
+      color: #ff6600;
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff3399;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #surprise {
+      display: none;
+      font-size: 1.8em;
+      color: #9900cc;
+      margin-top: 20px;
+    }
+    iframe {
+      margin-top: 30px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Music -->
+  <audio autoplay loop>
+    <source src="happy-birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 🎉 Birthday Message -->
+  <h1>🎉 Happy Birthday, [Cutie pie Diya jii]! 🎉</h1>
+  <p>Wishing you a day filled with love, Mahadev ji ki kripa tumhare pe bani rhe, And again wish you a very Happy Birthday Diya jii</p>
+  <div class="cake">🎂</div>
+  <p>From your friend, Abhishek 💖</p>
+
+  <!-- ⏳ Countdown Timer -->
+  <div id="countdown"></div>
+
+  <!-- 🎁 Surprise Button -->
+  <button onclick="document.getElementById('surprise').style.display='block'">
+    Click for a surprise!
+  </button>
+  <div id="surprise">🎈 You’re amazing, and I’m lucky to have you as a friend! 🎈</div>
+
+  <!-- 🎥 Birthday Video -->
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/ho08YLYDM88?autoplay=1" 
+    title="Birthday Video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
+
+  <!-- ⏱ Countdown Script -->
+  <script>
+    const birthday = new Date(“September 12, 2025 00:00:00").getTime();
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "🎉 It's your birthday!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
